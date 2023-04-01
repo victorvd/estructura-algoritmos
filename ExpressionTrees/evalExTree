@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 using namespace std;
@@ -34,11 +33,6 @@ class ExpressionTree {
 	ExpressionTree() {
 		top = NULL;
 	}
-
-	/* Clear tree
-	void clear() {
-		top = NULL;
-	}*/
 
 	// Push a node
 	void push(ExprNode *ptr) {
