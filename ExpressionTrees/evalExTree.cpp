@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 using namespace std;
@@ -35,11 +34,6 @@ class ExpressionTree {
 		top = NULL;
 	}
 
-	/* Clear tree
-	void clear() {
-		top = NULL;
-	}*/
-
 	// Push a node
 	void push(ExprNode *ptr) {
 		if (top == NULL)
@@ -66,7 +60,7 @@ class ExpressionTree {
 	}
 
 	// Get top node
-	ExprNode *peek() {
+	ExprNode *toptr() {
 		return top->trNode;
 	}
 
@@ -109,9 +103,9 @@ class ExpressionTree {
 		insert(eqn[i]);
 	}
 
-	// Evaluate peek element
+	// Evaluate toptr element
 	double evaluate() {
-		return compute(peek());
+		return compute(toptr());
 	}
 
 	// Evaluate tree
@@ -146,7 +140,7 @@ class ExpressionTree {
 
 	// Get postfix expression
 	void postfix() {
-		postOrder(peek());
+		postOrder(toptr());
 	}
 
 	// Post order traversal
