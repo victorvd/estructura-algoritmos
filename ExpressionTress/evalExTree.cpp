@@ -184,7 +184,6 @@ class ExpressionTree {
 
 int main()
 {
-	//test: +-+7*/935/82*/625
 	string expForm;
 	ExpressionTree exTr;
 	cout<<"\nEnter expression in prefix form: ";
