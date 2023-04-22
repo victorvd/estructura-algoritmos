@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "BPlusTree.h"
 
 int main(int argc, char* argv[]){
@@ -9,18 +10,15 @@ int main(int argc, char* argv[]){
 	}
 
 	MAX = stoi(argv[1]);
+	
+	vector<int> bpv{5, 15, 25, 35, 45, 55, 40, 30, 20};
 
 	BPTree node;
-	node.insert(5);
-	node.insert(15);
-	node.insert(25);
-	node.insert(35);
-	node.insert(45);
-	node.insert(55);
-	node.insert(40);
-	node.insert(30);
-	node.insert(20);
-	//https://cdn.programiz.com/sites/tutorial2program/files/search-tree.png
+	
+	for (int i = 0; i < bpv.size(); i++){
+	        node.insert(bpv[i]);
+        }
+
 	node.display(node.getRoot());
 
 	node.search(15);
