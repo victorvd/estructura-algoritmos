@@ -462,15 +462,10 @@ void BPTree::display(Nodo *cursor, Mat &image, Scalar frame_Color, int font_size
 	if (cursor != NULL) {
 		for (int i = 0; i < cursor->size; ++i) {
 			
-			//cout << cursor->key[i] << " ";
-			
 			Point text_position(txtPosX, txtPosY);
 			
 			putText(image, to_string(cursor->key[i]), text_position,
 				FONT_HERSHEY_COMPLEX, font_size, font_Color, font_weight);
-				
-			//Size size = getTextSize(to_string(cursor->key[i]), FONT_HERSHEY_COMPLEX, font_weight, 2, nullptr);
-			//cout << size.width << ' ' << size.height << endl;
 			
 			Point p1(txtPosX - 5, txtPosY - 33);
 			Point p2(txtPosX + 55, txtPosY + 13);
