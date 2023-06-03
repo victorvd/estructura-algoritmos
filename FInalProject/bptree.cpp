@@ -21,30 +21,6 @@ int main(int argc, char* argv[]){
 	for (int i = 0; i < bpv.size(); i++){
 	        node.insert(bpv[i]);
         }
-	//https://cdn.programiz.com/sites/tutorial2program/files/search-tree.png
 	
 	node.dispRoutine(node.getRoot());
-	
-	/*Mat image(500, 500, CV_8UC3, Scalar(200, 235, 225));
-	
-	int font_size = 1;
-	Scalar font_Color(22, 22, 165);
-	int font_weight = 2;
-	
-	int txtPosX = 80;
-	int txtPosY = 80;
-	int txtEsp = 60;
-	
-	node.display(node.getRoot(), image, font_size, font_Color, font_weight, txtPosX, txtPosY, txtEsp);
-	
-	imshow("Output", image);
-	waitKey(0);
-
-	node.search(15);
-	
-	node.remove(15);
-
-	node.display(node.getRoot());
-	
-	node.search(15);*/
 }
