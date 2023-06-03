@@ -476,15 +476,10 @@ void BPTree::display(Nodo *cursor, Mat &image, Scalar frame_Color, int font_size
 	if (cursor != NULL) {
 		for (int i = 0; i < cursor->size; ++i) {
 			
-			//cout << cursor->key[i] << " ";
-			
 			Point text_position(txtPosX, txtPosY);
 			
 			putText(image, to_string(cursor->key[i]), text_position,
 				FONT_HERSHEY_COMPLEX, font_size, font_Color, font_weight);
-				
-			//Size size = getTextSize(to_string(cursor->key[i]), FONT_HERSHEY_COMPLEX, font_weight, 2, nullptr);
-			//cout << size.width << ' ' << size.height << endl;
 			
 			Point p1(txtPosX - 5, txtPosY - 33);
 			Point p2(txtPosX + 55, txtPosY + 13);
@@ -492,12 +487,11 @@ void BPTree::display(Nodo *cursor, Mat &image, Scalar frame_Color, int font_size
 			
 			txtPosX = txtPosX + txtEsp;
 		}
-		//cout << "\n";
+		
 		txtPosY = txtPosY + txtEsp;
 		txtPosX = 80;
 		if (cursor->IS_LEAF != true) {
 			for (int i = 0; i <= cursor->size; ++i) {
-				//display(cursor->ptr[i]);
 				display(cursor->ptr[i], image, frame_Color, font_size, font_Color,
 					font_weight, txtPosX, txtPosY, txtEsp);
 			}
@@ -528,4 +522,3 @@ Nodo *BPTree::getRoot() {
 	return root;
 }
 #endif
-
