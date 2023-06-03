@@ -15,6 +15,10 @@ class Nodo {
 	public:
 	Nodo();
 };
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+|	B+tree Initialization						|
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 class BPTree {
 	Nodo *root;
 	void insertInternal(int, Nodo *, Nodo *);
@@ -39,7 +43,9 @@ BPTree::BPTree() {
 	root = NULL;
 }
 
-// Search operation
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+|	B+tree Search Operation						|
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 void BPTree::search(int x) {
 	if (root == NULL) {
 		cout << "Tree is empty\n";
@@ -67,7 +73,9 @@ void BPTree::search(int x) {
 	}
 }
 
-// Insert Operation
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+|	B+tree Insert Operation						|
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 void BPTree::insert(int x) {
 	if (root == NULL) {
 		root = new Nodo;
@@ -215,7 +223,9 @@ Nodo *BPTree::findParent(Nodo *cursor, Nodo *child) {
 	return parent;
 }
 
-// Delete Operation
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+|	B+tree Delete Operation						|
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 void BPTree::remove(int x) {
 	if (root == NULL) {
 		cout << "Tree empty\n";
@@ -456,6 +466,10 @@ void BPTree::removeInternal(int x, Nodo *cursor, Nodo *child) {
 		removeInternal(parent->key[rightSibling - 1], parent, rightNodo);
 	}
 }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+|	B+tree Display							|
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 void BPTree::display(Nodo *cursor, Mat &image, Scalar frame_Color, int font_size, Scalar font_Color,
 			int font_weight, int &txtPosX, int &txtPosY, int txtEsp) {
 
@@ -466,19 +480,19 @@ void BPTree::display(Nodo *cursor, Mat &image, Scalar frame_Color, int font_size
 			
 			putText(image, to_string(cursor->key[i]), text_position,
 				FONT_HERSHEY_COMPLEX, font_size, font_Color, font_weight);
-			
+				
 			Point p1(txtPosX - 5, txtPosY - 33);
 			Point p2(txtPosX + 55, txtPosY + 13);
 			rectangle(image, p1, p2, frame_Color, 2, LINE_8);
 			
 			txtPosX = txtPosX + txtEsp;
 		}
-		//cout << "\n";
+		
 		txtPosY = txtPosY + txtEsp;
 		txtPosX = 80;
 		if (cursor->IS_LEAF != true) {
 			for (int i = 0; i <= cursor->size; ++i) {
-				//display(cursor->ptr[i]);
+				
 				display(cursor->ptr[i], image, frame_Color, font_size, font_Color,
 					font_weight, txtPosX, txtPosY, txtEsp);
 			}
@@ -509,4 +523,3 @@ Nodo *BPTree::getRoot() {
 	return root;
 }
 #endif
-
